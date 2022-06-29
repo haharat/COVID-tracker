@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>COVID-19 tracker</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<nav class="navbar navbar-dark bg-warning">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">COVID-19 tracker</a>
+			<form id="searchForm">
+				<fieldset>
+					<label for="state">Get State Data</label>
+					<select id="searchState" name="state" class="searchState">
+						<option value="---">---</option>
+						<option value="Alabama">Alabama</option>
+						<option value="Alaska">Alaska</option>
+						<option value="Arizona">Arizona</option>
+						<option value="Arkansas">Arkansas</option>
+						<option value="California">California</option>
+						<option value="Colorado">Colorado</option>
+						<option value="Connecticut">Connecticut</option>
+						<option value="Delaware">Delaware</option>
+						<option value="District of Columbia">District of Columbia</option>
+						<option value="Florida">Florida</option>
+						<option value="Georgia">Georgia</option>
+						<option value="Guam">Guam</option>
+						<option value="Hawaii">Hawaii</option>
+						<option value="Idaho">Idaho</option>
+						<option value="Illinois">Illinois</option>
+						<option value="Indiana">Indiana</option>
+						<option value="Iowa">Iowa</option>
+						<option value="Kansas">Kansas</option>
+						<option value="Kentucky">Kentucky</option>
+						<option value="Louisiana">Louisiana</option>
+						<option value="Maine">Maine</option>
+						<option value="Maryland">Maryland</option>
+						<option value="Massachusetts">Massachusetts</option>
+						<option value="Michigan">Michigan</option>
+						<option value="Minnesota">Minnesota</option>
+						<option value="Mississippi">Mississippi</option>
+						<option value="Missouri">Missouri</option>
+						<option value="Montana">Montana</option>
+						<option value="Nebraska">Nebraska</option>
+						<option value="Nevada">Nevada</option>
+						<option value="New Hampshire">New Hampshire</option>
+						<option value="New Jersey">New Jersey</option>
+						<option value="New Mexico">New Mexico</option>
+						<option value="New York">New York</option>
+						<option value="North Carolina">North Carolina</option>
+						<option value="North Dakota">North Dakota</option>
+						<option value="Northern Mariana Islands">Northern Mariana Islands</option>
+						<option value="Ohio">Ohio</option>
+						<option value="Oklahoma">Oklahoma</option>
+						<option value="Oregon">Oregon</option>
+						<option value="Pennsylvania">Pennsylvania</option>
+						<option value="Puerto Rico">Puerto Rico</option>
+						<option value="Rhode Island">Rhode Island</option>
+						<option value="South Carolina">South Carolina</option>
+						<option value="South Dakota">South Dakota</option>
+						<option value="Tennessee">Tennessee</option>
+						<option value="Texas">Texas</option>
+						<option value="Utah">Utah</option>
+						<option value="Vermont">Vermont</option>
+						<option value="Virginia">Virginia</option>
+						<option value="Virgin Islands">Virgin Islands</option>
+						<option value="Washington">Washington</option>
+						<option value="West Virginia">West Virginia</option>
+						<option value="Wisconsin">Wisconsin</option>
+						<option value="Wyoming">Wyoming</option>
+					</select>
+				</fieldset>
+			</form>
+		</div>
+	</nav>
+
+	<section class="jumbotron bg-light p-2">
+		<div class="container">
+			<div class="d-flex align-items-center justify-content-between">
+				<img src="https://images.pexels.com/photos/3985170/pexels-photo-3985170.jpeg?cs=srgb&dl=pexels-gustavo-fring-3985170.jpg&fm=jpg"
+					class="img-fluid w-50 d-none d-sm-block img-responsive" />
+				<div class="text-center ms-3">
+					<form id="vaccineFinder">
+						<p class="lead">Use data to help you make your best decision on COVID-19
+							vaccination</p>
+						<p class="">Find COVID-19 vaccine information in your state</p>
+						<div class="input-group mb-3" id="searchLine">
+							<fieldset class="col-12">
+								<label for="state">Your State</label>
+								<select id="findState" name="state" class="mx-auto">
+									<option value="---">---</option>
+									<option value="Alabama">Alabama</option>
+									<option value="Alaska">Alaska</option>
+									<option value="Arizona">Arizona</option>
+									<option value="Arkansas">Arkansas</option>
+									<option value="California">California</option>
+									<option value="Colorado">Colorado</option>
+									<option value="Connecticut">Connecticut</option>
+									<option value="Delaware">Delaware</option>
+									<option value="District of Columbia">District of Columbia</option>
+									<option value="Florida">Florida</option>
+									<option value="Georgia">Georgia</option>
+									<option value="Guam">Guam</option>
+									<option value="Hawaii">Hawaii</option>
+									<option value="Idaho">Idaho</option>
+									<option value="Illinois">Illinois</option>
+									<option value="Indiana">Indiana</option>
+									<option value="Iowa">Iowa</option>
+									<option value="Kansas">Kansas</option>
+									<option value="Kentucky">Kentucky</option>
+									<option value="Louisiana">Louisiana</option>
+									<option value="Maine">Maine</option>
+									<option value="Maryland">Maryland</option>
+									<option value="Massachusetts">Massachusetts</option>
+									<option value="Michigan">Michigan</option>
+									<option value="Minnesota">Minnesota</option>
+									<option value="Mississippi">Mississippi</option>
+									<option value="Missouri">Missouri</option>
+									<option value="Montana">Montana</option>
+									<option value="Nebraska">Nebraska</option>
+									<option value="Nevada">Nevada</option>
+									<option value="New Hampshire">New Hampshire</option>
+									<option value="New Jersey">New Jersey</option>
+									<option value="New Mexico">New Mexico</option>
+									<option value="New York">New York</option>
+									<option value="North Carolina">North Carolina</option>
+									<option value="North Dakota">North Dakota</option>
+									<option value="Northern Mariana Islands">Northern Mariana Islands</option>
+									<option value="Ohio">Ohio</option>
+									<option value="Oklahoma">Oklahoma</option>
+									<option value="Oregon">Oregon</option>
+									<option value="Pennsylvania">Pennsylvania</option>
+									<option value="Puerto Rico">Puerto Rico</option>
+									<option value="Rhode Island">Rhode Island</option>
+									<option value="South Carolina">South Carolina</option>
+									<option value="South Dakota">South Dakota</option>
+									<option value="Tennessee">Tennessee</option>
+									<option value="Texas">Texas</option>
+									<option value="Utah">Utah</option>
+									<option value="Vermont">Vermont</option>
+									<option value="Virginia">Virginia</option>
+									<option value="Virgin Islands">Virgin Islands</option>
+									<option value="Washington">Washington</option>
+									<option value="West Virginia">West Virginia</option>
+									<option value="Wisconsin">Wisconsin</option>
+									<option value="Wyoming">Wyoming</option>
+								</select>
+							</fieldset>
+							<span class="input-group-btn col text-center mt-2">
+							<button class="btn btn-outline-warning text-center" type="submit" id="vaccineButton">Search</button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<section class="mt-4" id="state-data">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<h1 class="text-primary m-4" id="stateSelected"></h1>
+					<div class="row text-center">
+
+						<div class="col-lg-3 col-sm-6 mb-3">
+							<div class="card bg-warning text-light mb-3 pt-3 card h-100" id="card1">
+								<div class="" id="card-content">
+									<p class="">
+										Covid-19 Cases</p>
+									<h2 class="infoBox__cases false">
+										<span>New: +</span>
+										<span id="newCases"></span>
+									</h2>
+									<p class="">
+										<span>Total: </span>
+										<span id="totalCases"></span>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-sm-6 mb-3 ">
+							<div class="card bg-warning text-light mb-3 pt-3 card h-100" id="card2">
+								<div class="" id="card-content">
+									<p class="">
+										Deaths</p>
+									<h2 class="infoBox__cases false">
+										<span>New: +</span>
+										<span id="newDeaths"></span>
+									</h2>
+									<p class="">
+										<span>Total: </span>
+										<span id="totalDeaths"></span>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-sm-6 mb-3">
+							<div class="card bg-warning text-light mb-3 pt-3 card h-100">
+								<div class="" id="card-content">
+									<p class="">
+										Death Rate in the last 30 days</p>
+									<h2 class="infoBox__cases false">
+
+										<span id="deathRate"></span>
+										<span>%</span>
+									</h2>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-sm-6 mb-3">
+							<div class="card bg-warning text-light mb-3 pt-3 card h-100">
+								<div class="" id="card-content">
+									<p class="">
+										Vaccination Rate</p>
+									<h2 class="infoBox__cases false">
+
+										<span id="vaccinationRate"></span>
+										<span>%</span>
+									</h2>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<canvas id="state-chart" width="300" height="200"></canvas>
+					</div>
+				</div>
+				
+				<div class="col-lg-6">
+					<h4>Data for all US states</h4>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="flexRadioDefault" id="newCaseRateButton" checked>
+						<label class="form-check-label" for="newCaseRateButton">
+							New Cases per Capita in last 30 days
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="flexRadioDefault" id="deathRateButton">
+						<label class="form-check-label" for="deathRateButton">
+							Death Rate in last 30 days
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="flexRadioDefault" id="vaccRateButton">
+						<label class="form-check-label" for="vaccRateButton">
+							Vaccination Rate
+						</label>
+					</div>
+					<div class="container">
+						<canvas id="deathRate-chart" width="200" height="250"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+
+
+	<img src="https://c.tenor.com/5o2p0tH5LFQAAAAi/hug.gif" id="loadingImg" style="display:none">
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer">
+		</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+		integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	<script src="utility.js"></script>
+	<script src="chartGenerator.js"></script>
+	<script src="vaccinePage.js"></script>
+	<script src="script.js">
+	</script>
+</body>
+
+</html>
